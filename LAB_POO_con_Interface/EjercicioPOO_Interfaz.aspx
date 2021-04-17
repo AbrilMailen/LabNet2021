@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EjercicioPOO.aspx.cs" Inherits="POO_LAB_Transporte.EjercicioPOO1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EjercicioPOO_Interfaz.aspx.cs" Inherits="LAB_POO_con_Interface.EjercicioPOO_Interfaz" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
- <head runat="server">
+<head runat="server">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
        <script src="Scripts/jquery-3.0.0.js"></script>
        <script src="Scripts/bootstrap.js"></script>
         <script src="https://kit.fontawesome.com/fc8b58d044.js" crossorigin="anonymous"></script>
@@ -14,12 +14,12 @@
 
            <title>Lab .NET 2021</title>
     </head>
-<body style="background-color:cadetblue">
+       <body style="background-color:cadetblue">
       <form id="form1" runat="server">
         <div>
             <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
                 <div class="container">
-                    <a class="navbar-brand" href="EjercicioPOO.aspx">
+                    <a class="navbar-brand" href="EjercicioPOO_Interfaz.aspx">
                        LAB .NET 2021
                     </a>
                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,7 @@
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <ul class="navbar-nav navbar-center ml-auto">
                             <li class="nav-item ml-3">
-                                <a class="nav-link" href="EjercicioPOO.aspx">Unidad 2<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="EjercicioPOO_Interfaz.aspx">Unidad 2<span class="sr-only">(current)</span></a>
                             </li>
                         </ul>
                     </div>
