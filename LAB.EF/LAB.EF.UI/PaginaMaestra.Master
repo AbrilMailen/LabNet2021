@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PaginaMaestra.master.cs" Inherits="LAB.EF.UI.PaginaMaestra" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="Scripts/jquery-3.0.0.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="https://kit.fontawesome.com/fc8b58d044.js" crossorigin="anonymous"></script>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+
+    <title>Lab .NET 2021</title>
+</head>
+<body style="background-color: whitesmoke">
+    <form id="form2" runat="server">
+        <div>
+            <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+                <div class="container">
+                    <a class="navbar-brand" href="EjercicioEF.aspx">LAB .NET 2021
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav navbar-center ml-auto">
+                            <li class="nav-item ml-3">
+                                <a class="nav-link" href="EjercicioEF.aspx">CONSULTAS<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ABM EMPLEADOS
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="EjercicioEF_ABM_ALTAS.aspx">ALTAS</a>
+                                    <a class="dropdown-item" href="EjercicioEF_ABM_BAJAS.aspx">BAJAS</a>
+                                    <a class="dropdown-item" href="EjercicioEF_ABM_MODIFICACIONES.aspx">MODIFICACIONES</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ABM TERRITORIOS
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="EjercicioEF_ABM_ALTAS_T.aspx">ALTAS</a>
+                                    <a class="dropdown-item" href="EjercicioEF_ABM_BAJAS_T.aspx">BAJAS</a>
+                                    <a class="dropdown-item" href="EjercicioEF_ABM_MODIFICACIONES_T.aspx">MODIFICACIONES</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <footer class="container-fluid fixed-bottom mt-2 p-2">
+                <p>Pagina Web desarrollada por Abril Arce. @2021.</p>
+                <a href="https://github.com/AbrilMailen/" target="_blank"><i class="fab fa-github fa-2x  text-white icono pr-3"></i></a>
+                <a href="mailto:abril.mailen.am@gmail.com"><i class="far fa-envelope fa-2x icono text-white pr-3"></i></a>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
