@@ -1,0 +1,25 @@
+body {
+    background-color: grey !important;
+    font:  sans-serif  !important;
+    font-style: italic;
+    margin:4% !important;
+    color: white !important;
+}
+.titulo{
+    text-align: center;
+    font-style:normal;
+}
+.formGenero>input{
+    margin-left: 25px;
+}
+.formContacto{
+    border-radius: 20px;
+    background-color: lightslategrey;
+    max-width: 400px;
+   padding: 10px;
+}
+.grupo{
+    border-radius: 15px;
+    border: solid 2px white;
+    padding: 30px;
+}
