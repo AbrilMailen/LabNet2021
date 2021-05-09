@@ -1,0 +1,46 @@
+﻿@model LAB.MVC.Models.TerritoriesView
+@{
+    ViewBag.Title = "Territories Page";
+
+}
+
+@using (Html.BeginForm("Insert", "Territories", FormMethod.Post))
+{
+    <section>
+
+        <div class="container-fluid mt-5 mb-5">
+            <br />
+            <h3 class=" text-center">ABM TERRITORIOS</h3>
+            <label ID="lblEstado" Font-Size="X-Large" CssClass="text-center" ForeColor="#3333FF"></label>
+            <div class="form-group forms">
+
+                <label>ID Territorio:</label>
+                @{if (Model != null)
+                    { @Html.TextBoxFor(t => t.Id, new { @class = "form-control", MaxLength = "20", Disabled = true })}
+                else
+                { @Html.TextBoxFor(t => t.Id, new { @class = "form-control", MaxLength = "20", required = "true", id = "txtID" })}
+                }
+
+                @Html.ValidationMessageFor(t => t.Id, "", new { @class = "text-danger field-validation-error" })<br />
+                <label>Descripcion:</label>
+                @Html.TextBoxFor(t => t.TerritoryDescription, new { @class = "form-control", MaxLength = "50", required = "true", id = "txtDescripcion" })
+                @Html.ValidationMessageFor(t => t.TerritoryDescription, "", new { @class = "text-danger field-validation-error" })<br />
+                <label>Region:</label>
+                @Html.DropDownListFor(t => t.RegionID, (IEnumerable<SelectListItem>)ViewBag.RegionDD, new { @class = "form-control" })
+                <br />
+                <input type="submit" Value="Guardar" class="btn btn-success" style="width:100%" onclick="validate()" />
+            </div>
+        </div>
+    </section>
+}
+<script>
+    function validate() {
+        event.preventDefault;
+        if ($("#txtID").val().trim().length == 0) {
+            $("#txtID").val("");
+        }
+        if ($("#txtDescripcion").val().trim().length == 0) {
+            $("#txtDescripcion").val("");
+        }
+    }
+</script>

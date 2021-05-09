@@ -1,0 +1,33 @@
+﻿@model List<LAB.MVC.Models.EmployeesView>
+
+@{
+    ViewBag.Title = "Employees Page";
+}
+<h1 class="text-center">Consulta de lista actual de empleados.</h1>
+<br />
+<div>
+    @Html.ActionLink("AGREGAR NUEVO EMPLEADO", "Insert", null, new { @class = "btn btn-success stretched-link" })
+</div>
+<br/>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre Completo</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    @foreach (var employees in Model)
+    {
+        <tr>
+            <td scope="row">@employees.Id</td>
+            <td>@employees.FullName</td>
+            <td>@Html.ActionLink("Borrar", "Delete", new { id = employees.Id }, new { onclick = "return confirm('¿Esta seguro de que desea eliminar el empleado?')", @class = "btn btn-danger stretched-link" })</td>
+            <td>@Html.ActionLink("Modificar", "Insert", new { id = employees.Id }, new { @class = "btn btn-primary stretched-link" })</td>
+        </tr>
+    }
+</table>
+<div>
+    @Html.ActionLink("AGREGAR NUEVO EMPLEADO", "Insert", null, new { @class = "btn btn-success stretched-link" })
+</div>

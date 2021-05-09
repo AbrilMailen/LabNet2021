@@ -1,0 +1,88 @@
+﻿@model LAB.MVC.Models.EmployeesView
+@{
+    ViewBag.Title = "Employees Page";
+
+}
+
+@using (Html.BeginForm("Insert", "Employees", FormMethod.Post))
+{
+    <section>
+
+        <div class="container-fluid mt-5 mb-5">
+            <br />
+            <h3 class=" text-center">ABM EMPLEADOS</h3>
+            <label ID="lblEstado" Font-Size="X-Large" CssClass="text-center" ForeColor="#3333FF"></label>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group forms" id="formulario">
+
+                @{if (Model != null)
+                    { <label>ID:</label>
+                        @Html.TextBoxFor(t => t.Id, new { @class = "form-control", MaxLength = "20", Disabled = true })}<br />
+                }
+                <label>Nombre:</label>
+                @Html.TextBoxFor(e => e.FirstName, new { @class = "form-control", MaxLength = "10", id = "txtFirstName", required = "true" })
+                @Html.ValidationMessageFor(e => e.FirstName, "", new { @class = "text-danger field-validation-error" })<br />
+
+                <label>Apellido: </label>
+                @Html.TextBoxFor(e => e.LastName, new { @class = "form-control", MaxLength = "20", id = "txtLastName", required = "true" })
+                @Html.ValidationMessageFor(e => e.LastName, "", new { @class = "text-danger field-validation-error" })<br />
+
+                <label>Titulo:</label>
+                @Html.TextBoxFor(e => e.Title, new { @class = "form-control", MaxLength = "30" })<br />
+
+                <label>Titulo de Cortesia:</label>
+                @Html.TextBoxFor(e => e.TitleOfCourtesy, new { @class = "form-control", MaxLength = "25" })<br />
+
+                <label>Fecha de Nacimiento:</label>
+                @Html.TextBoxFor(e => e.BirthDate, new { @class = "form-control", placeholder = "dd/mm/yyyy", id = "txtNacimiento" })
+                @Html.ValidationMessageFor(e => e.BirthDate, "", new { @class = "text-danger field-validation-error", autofocus = "true" })<br />
+                <label>Fecha de Contratacion:</label>
+                @Html.TextBoxFor(e => e.HireDate, new { @class = "form-control", placeholder = "dd/mm/yyyy" })
+                @Html.ValidationMessageFor(e => e.HireDate, "", new { @class = "text-danger field-validation-error", autofocus = "true" })<br />
+                <label>Direccion:</label>
+                @Html.TextBoxFor(e => e.Address, new { @class = "form-control", MaxLength = "60" })<br />
+
+                <label>Ciudad:</label>
+                @Html.TextBoxFor(e => e.City, new { @class = "form-control", MaxLength = "15" })<br />
+
+                <label>Region:</label>
+                @Html.TextBoxFor(e => e.Region, new { @class = "form-control", MaxLength = "15" })<br />
+
+                <label>CP:</label>
+                @Html.TextBoxFor(e => e.PostalCode, new { @class = "form-control", MaxLength = "10" })<br />
+
+                <label>Pais:</label>
+                @Html.TextBoxFor(e => e.Country, new { @class = "form-control", MaxLength = "15" })<br />
+
+                <label>Telefono:</label>
+                @Html.TextBoxFor(e => e.HomePhone, new { @class = "form-control", MaxLength = "24" })<br />
+
+                <label>Extension:</label>
+                @Html.TextBoxFor(e => e.Extension, new { @class = "form-control", MaxLength = "4" })<br />
+
+                <label>Informes a:</label>
+                @Html.DropDownListFor(e => e.ReportsTo, (IEnumerable<SelectListItem>)ViewBag.DDReports, new { @class = "form-control" })
+                <label>Notas:</label>
+                @Html.TextAreaFor(e => e.Notes, new { @class = "form-control", MaxLength = "1000000000" })<br />
+
+                <label>Photo Path:</label>
+                @Html.TextBoxFor(e => e.PhotoPath, new { @class = "form-control", type = "Url" })<br />
+                <br />
+                <input type="submit" Value="Guardar" class="btn btn-success" style="width:100%" id="btnGuardar" onclick="validate()" />
+            </div>
+
+        </div>
+    </section>
+}
+<script>
+    function validate() {
+        event.preventDefault;
+        if ($("#txtFirstName").val().trim().length == 0) {
+            $("#txtFirstName").val("");
+        }
+        if ($("#txtLastName").val().trim().length == 0) {
+            $("#txtLastName").val("");
+        }
+    }
+</script>
