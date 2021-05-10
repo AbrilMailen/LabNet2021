@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "API Page";
+}
+@{
+    <div class="text-center">
+        <h1>Consumo de API Publica</h1>
+        <a href="https://futuramaapi.herokuapp.com/" class=" btn btn-success stretched-link" target="_blank">Link a la API</a>
+        <h2>Lista de frases de los personajes de la serie Futurama</h2>
+    </div>
+    <div style="padding: 2%">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Quote</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            @foreach (var caracter in Model)
+            {
+                <tr>
+                    <td scope="row" style="font-weight:bold"> @caracter.character;</td>
+                    <td>  @caracter.quote;</td>
+                    <td> <img src="@caracter.image;" style="width: 30%" /> </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <br />
+    <a href="https://futuramaapi.herokuapp.com/" class=" btn btn-success stretched-link" target="_blank">Link a la API</a>
+}

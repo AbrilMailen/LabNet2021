@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAB.Logic", "LAB.Logic\LAB.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAB.MVC", "LAB.MVC\LAB.MVC.csproj", "{AD729181-9697-46AA-A496-44F5F73F4BA9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAB.NET.webAPI", "LAB.NET.webAPI\LAB.NET.webAPI.csproj", "{3E23CE92-9E53-40F9-BE04-B1E20006794A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{AD729181-9697-46AA-A496-44F5F73F4BA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD729181-9697-46AA-A496-44F5F73F4BA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD729181-9697-46AA-A496-44F5F73F4BA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E23CE92-9E53-40F9-BE04-B1E20006794A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E23CE92-9E53-40F9-BE04-B1E20006794A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E23CE92-9E53-40F9-BE04-B1E20006794A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E23CE92-9E53-40F9-BE04-B1E20006794A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
