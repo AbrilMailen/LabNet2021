@@ -9,7 +9,8 @@ import { FormModificacionesComponent } from './form-modificaciones/form-modifica
 
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,13 @@ import { DialogComponent } from '../dialog/dialog.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      progressBar: true,
+      progressAnimation: 'decreasing'
+    })
   ],
   exports: [
     FormAltasComponent

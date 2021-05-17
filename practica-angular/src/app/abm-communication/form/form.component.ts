@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { Employee, EmployeeResumido } from '../models/employee';
 import { ServiciosAPIService } from '../services/servicios-api.service';
@@ -17,17 +18,22 @@ export class FormComponent implements OnInit {
   public employee= new Employee();
 
 
-  constructor(private api: ServiciosAPIService, private router: Router, public dialog: MatDialog)
+  constructor(private api: ServiciosAPIService, 
+    private router: Router, 
+    public dialog: MatDialog,
+    private toastr: ToastrService)
    { 
-    this.api.getEmployees().subscribe(resp=>{
-      this.employeeResponse=resp;
-    });
+    
   }
 
   modificarId(id:number){
     this.router.navigate(['modificaciones',id]);
   }
-  ngOnInit(){};
+  ngOnInit(){
+    this.api.getEmployees().subscribe(resp=>{
+      this.employeeResponse=resp;
+    });
+  };
  
   openDialog(id: number) {
     var emp= new Employee();
@@ -49,11 +55,11 @@ export class FormComponent implements OnInit {
   }
 
   eliminar(id:number){
-    var r = confirm("¿Usted esta seguro que desea eliminar el empleado?");
+    var r = confirm("¿Usted esta seguro que desea eliminar el empleado "+id+" ?");
     if (r == true) {
       this.api.deleteEmployees(id).subscribe((response:number)=>console.log(response),
-      (error:any)=> alert('Ocurrió un error, no se puede eliminar.'), 
-      ()=> window.location.reload() //para que se muestren los cambios
+      (error:any)=> this.toastr.error('No se puede eliminar.', 'Error'), 
+      ()=> this.ngOnInit() //para que se muestren los cambios
       );
     } 
   }

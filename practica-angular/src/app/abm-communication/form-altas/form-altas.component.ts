@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Employee } from '../models/employee';
 import { ServiciosAPIService } from '../services/servicios-api.service';
 
@@ -43,7 +44,9 @@ export class FormAltasComponent implements OnInit {
       return this.form.get('HomePhone');
     }
 
-    constructor(private readonly fb: FormBuilder, private serviciosAPIservice: ServiciosAPIService) { }
+    constructor(private readonly fb: FormBuilder, 
+      private serviciosAPIservice: ServiciosAPIService, 
+      private toastr: ToastrService) { }
   
     ngOnInit(): void {
       this.form = this.fb.group({
@@ -71,8 +74,9 @@ export class FormAltasComponent implements OnInit {
         employee.Address=this.direccionCtrl.value;
 
         this.serviciosAPIservice.postEmployees(employee).subscribe(
-          ()=> {alert('¡Empleado agregado con exito!'),  this.limpiar()},
-          (error:400)=> alert('Ocurrió un error.')
+          ()=> {this.toastr.success('¡Empleado agregado con exito!',"Hecho"),  
+                this.limpiar()},
+          (error:400)=> this.toastr.error('No se puede agregar.','Error')
         );
     }
     limpiar(): void {

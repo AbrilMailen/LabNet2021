@@ -1,15 +1,18 @@
-import { formatCurrency } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { Router, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { FormAltasComponent } from './abm-communication/form-altas/form-altas.component';
 import { FormModificacionesComponent } from './abm-communication/form-modificaciones/form-modificaciones.component';
 import { FormComponent } from './abm-communication/form/form.component';
-import { AppComponent } from './app.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent
+    component: InicioComponent
+  },
+  {
+    path:'inicio',
+    component: InicioComponent
   },
   {
     path: 'altas',

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 import { Employee } from '../models/employee';
 import { ServiciosAPIService } from '../services/servicios-api.service';
+
 
 @Component({
   selector: 'app-form-modificaciones',
@@ -56,16 +57,15 @@ export class FormModificacionesComponent implements OnInit {
     get phoneCtrl(): AbstractControl{
       return this.formModificar.get('HomePhone');
     }
-
     constructor(private readonly fb: FormBuilder, 
       private serviciosAPIservice: ServiciosAPIService, 
       private  activeRouter: ActivatedRoute,
-      private router: Router) {
+      private router: Router,
+      private toastr: ToastrService) {
      
      }
     
     ngOnInit(): void {
-      
       let employeeId = this.activeRouter.snapshot.paramMap.get('id');
        var id= parseInt(employeeId);
        this.serviciosAPIservice.getEmployee(id).subscribe(
@@ -97,9 +97,9 @@ export class FormModificacionesComponent implements OnInit {
         employee.PostalCode=this.codigoPCtrl.value;
         employee.Address=this.direccionCtrl.value;
         this.serviciosAPIservice.putEmployees(employee).subscribe(   
-          ()=> {alert('¡Empleado modificado con exito!');
+          ()=> {this.toastr.success('¡Empleado modificado con exito!','Hecho');
             this.router.navigateByUrl('abm');
            },
-          (error:400)=> (alert("Ocurrio un error.")));
+          (error:400)=> (this.toastr.error("No se pudo modificar.", "Error")));
     }
   }

@@ -8,13 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ABMCommunicationModule } from './abm-communication/abm-communication.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogComponent } from './dialog/dialog.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogComponent  
+    DialogComponent,
+    InicioComponent  
   ],
   imports: [
     BrowserModule,
