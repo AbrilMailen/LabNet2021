@@ -61,9 +61,7 @@ export class FormModificacionesComponent implements OnInit {
       private serviciosAPIservice: ServiciosAPIService, 
       private  activeRouter: ActivatedRoute,
       private router: Router,
-      private toastr: ToastrService) {
-     
-     }
+      private toastr: ToastrService) {}
     
     ngOnInit(): void {
       let employeeId = this.activeRouter.snapshot.paramMap.get('id');
@@ -85,18 +83,7 @@ export class FormModificacionesComponent implements OnInit {
     }
 
     modificar(){
-        var employee = new Employee();
-        employee.Id=this.idCtrl.value;
-        employee.LastName= this.apellidoCtrl.value;
-        employee.FirstName=this.nombreCtrl.value;
-        employee.Title=this.tituloCtrl.value;
-        employee.City=this.ciudadCtrl.value;
-        employee.Country=this.paisCtrl.value;
-        employee.HomePhone=this.phoneCtrl.value;
-        employee.Region=this.regionCtrl.value;
-        employee.PostalCode=this.codigoPCtrl.value;
-        employee.Address=this.direccionCtrl.value;
-        this.serviciosAPIservice.putEmployees(employee).subscribe(   
+        this.serviciosAPIservice.putEmployees(this.formModificar.value).subscribe(   
           ()=> {this.toastr.success('¡Empleado modificado con exito!','Hecho');
             this.router.navigateByUrl('abm');
            },

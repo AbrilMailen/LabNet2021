@@ -47,7 +47,7 @@
             <label class="col-form-label">Telefono:</label>
             <input formControlName="HomePhone" type="text" class="form-control" maxlength="24">
           </div>
-          <button [disabled]="(!formModificar.valid)"  class="btn btn-success w-100 mt-2" (click)="modificar()">Guardar cambios</button>
+          <button [disabled]="!formModificar.valid" class="btn btn-success w-100 mt-2" (click)="modificar()">Guardar cambios</button>
         </form>
       </div>
     </div>

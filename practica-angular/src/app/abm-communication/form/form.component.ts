@@ -25,7 +25,6 @@ export class FormComponent implements OnInit {
    { 
     
   }
-
   modificarId(id:number){
     this.router.navigate(['modificaciones',id]);
   }
@@ -63,6 +62,8 @@ export class FormComponent implements OnInit {
       );
     } 
   }
-
+  direccionar(){
+    this.router.navigateByUrl('altas');
+  }
 }
  

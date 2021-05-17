@@ -12,36 +12,12 @@ import { ServiciosAPIService } from '../services/servicios-api.service';
 })
 export class FormAltasComponent implements OnInit {
     
-    form: FormGroup;
-  
+    form: FormGroup; 
     get nombreCtrl(): AbstractControl {
       return this.form.get('FirstName');
     }
-  
     get apellidoCtrl(): AbstractControl {
       return this.form.get('LastName');
-    }
-  
-    get tituloCtrl(): AbstractControl{
-      return this.form.get('Title');
-    }
-    get direccionCtrl(): AbstractControl{
-      return this.form.get('Address');
-    }
-    get ciudadCtrl(): AbstractControl{
-      return this.form.get('City');
-    }
-    get regionCtrl(): AbstractControl{
-      return this.form.get('Region');
-    }
-    get codigoPCtrl(): AbstractControl{
-      return this.form.get('PostalCode');
-    }
-    get paisCtrl(): AbstractControl{
-      return this.form.get('Country');
-    }
-    get phoneCtrl(): AbstractControl{
-      return this.form.get('HomePhone');
     }
 
     constructor(private readonly fb: FormBuilder, 
@@ -62,18 +38,7 @@ export class FormAltasComponent implements OnInit {
       });
     }
     save(){
-        var employee = new Employee();
-        employee.LastName= this.apellidoCtrl.value;
-        employee.FirstName=this.nombreCtrl.value;
-        employee.Title=this.tituloCtrl.value;
-        employee.City=this.ciudadCtrl.value;
-        employee.Country=this.paisCtrl.value;
-        employee.HomePhone=this.phoneCtrl.value;
-        employee.Region=this.regionCtrl.value;
-        employee.PostalCode=this.codigoPCtrl.value;
-        employee.Address=this.direccionCtrl.value;
-
-        this.serviciosAPIservice.postEmployees(employee).subscribe(
+        this.serviciosAPIservice.postEmployees(this.form.value).subscribe(
           ()=> {this.toastr.success('¡Empleado agregado con exito!',"Hecho"),  
                 this.limpiar()},
           (error:400)=> this.toastr.error('No se puede agregar.','Error')
