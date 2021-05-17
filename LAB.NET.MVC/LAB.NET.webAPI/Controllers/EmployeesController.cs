@@ -7,16 +7,16 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace LAB.NET.webAPI.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class EmployeesController : ApiController
     {
-
         public EmployeesLogic db = new EmployeesLogic();
         public List<EmployeesView> Get()
         {
-
             var employeesView = db.GetAll().Select(e => new EmployeesView
             {
                 Id = e.EmployeeID,
@@ -78,11 +78,12 @@ namespace LAB.NET.webAPI.Controllers
             }
             else return BadRequest(ModelState);
         }
-        public IHttpActionResult Put(int id, [FromBody] EmployeesView employee)
+        public IHttpActionResult Put([FromBody] EmployeesView employee)
         {
             if (ModelState.IsValid)
             {
-                Employees emp = db.GetOne(id);
+                Employees emp = new Employees();
+                emp.EmployeeID = employee.Id;
                 emp.FirstName = employee.FirstName;
                 emp.LastName = employee.LastName;
                 emp.Title = employee.Title;

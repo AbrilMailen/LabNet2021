@@ -1,0 +1,33 @@
+<section class="mt-5">
+ <div class="container-fluid w-75 m-3 pb-4">
+    <h1 class=" pt-3">LISTADO DE EMPLEADOS</h1>
+    <p>Bienvenido, en esta sección podra realizar consultas, bajas, altas y modificaciones de cualquier empleado de su base de datos.</p>
+    <a class="btn btn-success mb-3 w-50" href="/altas">Agregar Empleado</a>
+        <div class="text-center"> 
+          <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre Completo</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let EmployeeResumido of employeeResponse">
+                    <td scope="row">{{EmployeeResumido.Id}}</td>
+                    <td>{{EmployeeResumido.FirstName + " "+ EmployeeResumido.LastName}}</td>
+                   <td> <button class="btn btn-primary w-100" (click)="modificarId(EmployeeResumido.Id)" >Modificar</button>  </td>   
+                   <td> <button type="button" class="btn btn-danger w-100" (click)="eliminar(EmployeeResumido.Id)">Eliminar</button>  </td>  
+                   <td><button mat-raised-button (click)="openDialog(EmployeeResumido.Id)" type="button" class="btn btn-secondary w-100">Ver Detalles</button> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        <a class="btn btn-success mt-2 mb-5 w-50" href="/altas">Agregar Empleado</a>
+      </div>
+    </section>
+        
+
+       

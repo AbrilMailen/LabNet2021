@@ -1,0 +1,54 @@
+<section class="pb-5">
+<div class="container pt-2 mt-5 pb-5 mb-5">
+    <div class="row justify-content-sm-center pt-5">
+      <div class="col-sm-6 shadow round pb-3">
+        <h1 class="text-center pt-3 text-secondary">Alta Empleados</h1>
+        <form [formGroup]="form">
+          
+          <div class="form-group">
+            <label class="col-form-label">Nombre:</label>
+            <input formControlName="FirstName" type="text" class="form-control" maxlength="10">
+            <small *ngIf="nombreCtrl?.invalid && nombreCtrl?.touched" class="text-danger">El nombre es requerido</small>
+          </div>
+          <div class="form-group">
+            <label class="col-form-label">Apellido:</label>
+            <input formControlName="LastName" type="text" class="form-control" maxlength="20">
+            <small *ngIf="apellidoCtrl?.invalid && apellidoCtrl?.touched" class="text-danger">El apellido es
+              requerido</small>
+          </div>
+          <div class="form-group">
+            <label class="col-form-label">Titulo:</label>
+            <input formControlName="Title" type="text" class="form-control" maxlength="30">
+          </div>
+          <div class="form-group">
+            <label class="col-form-label">Direccion:</label>
+            <input formControlName="Address" type="text" class="form-control" maxlength="60">
+          </div>
+          <div class="form-group">
+            <label class="col-form-label">Region:</label>
+            <input formControlName="Region" type="text" class="form-control" maxlength="15">
+          </div>
+          <div class="form-group">
+            <label class="col-form-label">Ciudad:</label>
+            <input formControlName="City" type="text" class="form-control" maxlength="15">
+          </div>
+          <div class="form-group">
+            <label class="col-form-label">Codigo Postal:</label>
+            <input formControlName="PostalCode" type="text" class="form-control" maxlength="10">
+          </div>
+          <div class="form-group">
+            <label class="col-form-label">Pais:</label>
+            <input formControlName="Country" type="text" class="form-control" maxlength="15">
+          </div>
+          <div class="form-group">
+            <label class="col-form-label">Telefono:</label>
+            <input formControlName="HomePhone" type="text" class="form-control" maxlength="24">
+          </div>
+          <button [disabled]="!form.valid"  class="btn btn-success w-100 mt-2" (click)="save()">Guardar</button>
+          <button type="button" class="btn btn-primary w-25 mt-2 " (click)="limpiar()">Limpiar</button>
+        </form>
+      
+      </div>
+    </div>
+  </div>
+</section>
