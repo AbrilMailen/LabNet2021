@@ -5,10 +5,6 @@
         <h1 class="text-center pt-3 text-secondary">Modificar</h1>
         <form [formGroup]="formModificar" >
           <div class="form-group">
-            <label class="col-form-label">Id:</label>
-            <input formControlName="Id" type="text" class="form-control" maxlength="30" disabled="true">
-          </div>
-          <div class="form-group">
             <label class="col-form-label">Nombre:</label>
             <input formControlName="FirstName" type="text" class="form-control" maxlength="10">
             <small *ngIf="nombreCtrl?.invalid && nombreCtrl?.touched" class="text-danger">El nombre es requerido</small>
