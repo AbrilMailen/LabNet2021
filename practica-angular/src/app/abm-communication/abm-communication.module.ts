@@ -7,18 +7,18 @@ import { FormAltasComponent } from './form-altas/form-altas.component';
 import { FormComponent } from './form/form.component';
 import { FormModificacionesComponent } from './form-modificaciones/form-modificaciones.component';
 
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ToastrModule} from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
     FormAltasComponent,
     FormComponent,
-    FormModificacionesComponent
+    FormModificacionesComponent,
   ],
-  entryComponents:[DialogComponent],
+  entryComponents: [DialogComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -29,11 +29,9 @@ import {ToastrModule} from 'ngx-toastr';
     ToastrModule.forRoot({
       timeOut: 5000,
       progressBar: true,
-      progressAnimation: 'decreasing'
-    })
+      progressAnimation: 'decreasing',
+    }),
   ],
-  exports: [
-    FormAltasComponent
-  ]
+  exports: [FormAltasComponent],
 })
-export class ABMCommunicationModule { }
+export class ABMCommunicationModule {}

@@ -1,28 +1,17 @@
 <div>
-<h1 mat-dialog-title>Detalles</h1>
-<div mat-dialog-content class="m-4">
-    <p><b>ID:</b> {{data.Id}}</p>
-    <p><b>Nombre:</b> {{data.FirstName}}</p>
-    <p><b>Apellido:</b> {{data.LastName}}</p>
-    <p><b>Titulo:</b> {{data.Title}}</p>
-    <p><b>Direccion:</b> {{data.Address}}</p>
-    <p><b>Codigo Postal:</b> {{data.PostalCode}}</p>
-    <p><b>Ciudad:</b> {{data.City}}</p>
-    <p><b>Pais:</b> {{data.Country}}</p>
-    <p><b>Region:</b> {{data.Region}}</p>
-    <p><b>Telefono:</b> {{data.HomePhone}}</p>
+    <h1 mat-dialog-title>Detalles</h1>
+    <div mat-dialog-content class="m-4">
+        <p><b>Nombre:</b> {{data.FirstName}}</p>
+        <p><b>Apellido:</b> {{data.LastName}}</p>
+        <p><b>Titulo:</b> {{data.Title}}</p>
+        <p><b>Direccion:</b> {{data.Address}}</p>
+        <p><b>Codigo Postal:</b> {{data.PostalCode}}</p>
+        <p><b>Ciudad:</b> {{data.City}}</p>
+        <p><b>Pais:</b> {{data.Country}}</p>
+        <p><b>Region:</b> {{data.Region}}</p>
+        <p><b>Telefono:</b> {{data.HomePhone}}</p>
+    </div>
+    <div mat-dialog-actions>
+        <button class="btn btn-secondary" (click)="cancelar()">Cerrar</button>
+    </div>
 </div>
-<div mat-dialog-actions >
-    <button class="btn btn-secondary" (click)="cancelar()">Cerrar</button>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-

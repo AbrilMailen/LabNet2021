@@ -44,7 +44,8 @@
             <input formControlName="HomePhone" type="text" class="form-control" maxlength="24">
           </div>
           <button [disabled]="!form.valid"  class="btn btn-success w-100 mt-2" (click)="save()">Guardar</button>
-          <button type="button" class="btn btn-primary w-25 mt-2 " (click)="limpiar()">Limpiar</button>
+          <button type="button" class="btn btn-primary  m-2 " (click)="limpiar()">Limpiar</button>
+          <button type="button" class="btn btn-danger w-75  m-2" (click)="direccionar()">Cancelar</button>
         </form>
       </div>
     </div>
