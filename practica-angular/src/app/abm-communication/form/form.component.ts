@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
-import { Employee, EmployeeResumido } from '../models/employee';
+import { Employee } from '../models/employee';
 import { ServiciosAPIService } from '../services/servicios-api.service';
 
 
@@ -14,8 +14,7 @@ import { ServiciosAPIService } from '../services/servicios-api.service';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
-  public employeeResponse: EmployeeResumido[];
-  public employee= new Employee();
+  public employeeResponse: Employee[];
 
 
   constructor(private api: ServiciosAPIService, 
@@ -34,23 +33,8 @@ export class FormComponent implements OnInit {
     });
   };
  
-  openDialog(id: number) {
-    var emp= new Employee();
-    this.api.getEmployee(id).subscribe(
-     json=>{
-       emp.Id=json.Id,
-       emp.FirstName=json.FirstName,
-       emp.LastName=json.LastName,
-       emp.PostalCode=json.PostalCode,
-       emp.Region=json.Region,
-       emp.Address=json.Address,
-       emp.City=json.City,
-       emp.Title=json.Title,
-       emp.HomePhone=json.HomePhone,
-       emp.Country=json.Country
-     }
-    );
-    this.dialog.open(DialogComponent, {data: emp});
+  openDialog(employee: Employee) {
+    this.dialog.open(DialogComponent, {data: employee});
   }
 
   eliminar(id:number){

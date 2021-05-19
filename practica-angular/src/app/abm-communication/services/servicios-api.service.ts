@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Employee, EmployeeResumido } from '../models/employee';
+import { Employee} from '../models/employee';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
@@ -22,9 +22,9 @@ export class ServiciosAPIService {
 }
 
 
-  getEmployees():Observable<EmployeeResumido[]>  
+  getEmployees():Observable<Employee[]>  
   {
-   return this.http.get<EmployeeResumido[]>(environment.api_ABM +'Employees/');
+   return this.http.get<Employee[]>(environment.api_ABM +'Employees/');
   }
 
   deleteEmployees(id: number){

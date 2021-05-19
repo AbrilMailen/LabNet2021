@@ -15,12 +15,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let EmployeeResumido of employeeResponse">
-                    <td scope="row">{{EmployeeResumido.Id}}</td>
-                    <td>{{EmployeeResumido.FirstName + " "+ EmployeeResumido.LastName}}</td>
-                    <td><button  mat-raised-button (click)="openDialog(EmployeeResumido.Id)" type="button" class="btn btn-outline-secondary"><i class="fa fa-list"></i></button></td>
-                   <td><button type="button" (click)="modificarId(EmployeeResumido.Id)" class="btn btn-outline-primary"><i class="fa fa-edit"></i></button></td>
-                   <td> <button type="button" class="btn btn-outline-danger" (click)="eliminar(EmployeeResumido.Id)"><i class="fa fa-trash-o"></i> </button>  </td> 
+                <tr *ngFor="let Employee of employeeResponse">
+                    <td scope="row">{{Employee.Id}}</td>
+                    <td>{{Employee.FirstName + " "+ Employee.LastName}}</td>
+                    <td><button  mat-raised-button (click)="openDialog(Employee)" type="button" class="btn btn-outline-secondary"><i class="fa fa-list"></i></button></td>
+                   <td><button type="button" (click)="modificarId(Employee.Id)" class="btn btn-outline-primary"><i class="fa fa-edit"></i></button></td>
+                   <td> <button type="button" class="btn btn-outline-danger" (click)="eliminar(Employee.Id)"><i class="fa fa-trash-o"></i> </button>  </td> 
                    
                 </tr>
             </tbody>

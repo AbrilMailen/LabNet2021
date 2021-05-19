@@ -11,8 +11,3 @@ export class Employee{
     PostalCode: string;
 }
   
-  export class EmployeeResumido {
-    Id: number;
-    FirstName: string;
-    LastName: string;
-  }
