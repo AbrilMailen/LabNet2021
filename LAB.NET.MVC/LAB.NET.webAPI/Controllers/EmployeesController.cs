@@ -13,30 +13,11 @@ namespace LAB.NET.webAPI.Controllers
     public class EmployeesController : ApiController
     {
         public EmployeesLogic db = new EmployeesLogic();
-        public List<EmployeesView> Get()
+        public IHttpActionResult Get()
         {
-            var employeesView = db.GetAll().Select(e => new EmployeesView
+            try
             {
-                Id = e.EmployeeID,
-                LastName = e.LastName,
-                FirstName = e.FirstName,
-                Address = e.Address,
-                City = e.City,
-                Country = e.Country,
-                HomePhone = e.HomePhone,
-                PostalCode = e.PostalCode,
-                Region = e.Region,
-                Title = e.Title
-            }).ToList();
-            return employeesView;
-        }
-
-        public IHttpActionResult Get(int id)
-        {
-            Employees e = db.GetOne(id);
-            if (e != null)
-            {
-                EmployeesView employeesView = new EmployeesView
+                var employeesView = db.GetAll().Select(e => new EmployeesView
                 {
                     Id = e.EmployeeID,
                     LastName = e.LastName,
@@ -48,10 +29,41 @@ namespace LAB.NET.webAPI.Controllers
                     PostalCode = e.PostalCode,
                     Region = e.Region,
                     Title = e.Title
-                };
+                }).ToList();
                 return Ok(employeesView);
             }
-            else return NotFound();
+            catch {
+                return InternalServerError();
+            }
+        }
+
+        public IHttpActionResult Get(int id)
+        {
+            try
+            {
+                Employees e = db.GetOne(id);
+                if (e != null)
+                {
+                    EmployeesView employeesView = new EmployeesView
+                    {
+                        Id = e.EmployeeID,
+                        LastName = e.LastName,
+                        FirstName = e.FirstName,
+                        Address = e.Address,
+                        City = e.City,
+                        Country = e.Country,
+                        HomePhone = e.HomePhone,
+                        PostalCode = e.PostalCode,
+                        Region = e.Region,
+                        Title = e.Title
+                    };
+                    return Ok(employeesView);
+                }
+                else return NotFound();
+            }
+            catch {
+                return InternalServerError();
+            }
         }
 
         [HttpPost]
@@ -59,20 +71,26 @@ namespace LAB.NET.webAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                Employees emp = new Employees
+                try
                 {
-                    FirstName = employee.FirstName,
-                    LastName = employee.LastName,
-                    Title = employee.Title,
-                    Address = employee.Address,
-                    City = employee.City,
-                    Region = employee.Region,
-                    PostalCode = employee.PostalCode,
-                    Country = employee.Country,
-                    HomePhone = employee.HomePhone
-                };
-                db.Add(emp);
-                return Ok();
+                    Employees emp = new Employees
+                    {
+                        FirstName = employee.FirstName,
+                        LastName = employee.LastName,
+                        Title = employee.Title,
+                        Address = employee.Address,
+                        City = employee.City,
+                        Region = employee.Region,
+                        PostalCode = employee.PostalCode,
+                        Country = employee.Country,
+                        HomePhone = employee.HomePhone
+                    };
+                    db.Add(emp);
+                    return Ok();
+                }
+                catch {
+                    return InternalServerError();
+                }
             }
             else return BadRequest(ModelState);
         }
@@ -80,19 +98,25 @@ namespace LAB.NET.webAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                Employees emp = new Employees();
-                emp.EmployeeID = employee.Id;
-                emp.FirstName = employee.FirstName;
-                emp.LastName = employee.LastName;
-                emp.Title = employee.Title;
-                emp.Address = employee.Address;
-                emp.City = employee.City;
-                emp.Region = employee.Region;
-                emp.PostalCode = employee.PostalCode;
-                emp.Country = employee.Country;
-                emp.HomePhone = employee.HomePhone;
-                db.Update(emp);
-                return Ok();
+                try
+                {
+                    Employees emp = new Employees();
+                    emp.EmployeeID = employee.Id;
+                    emp.FirstName = employee.FirstName;
+                    emp.LastName = employee.LastName;
+                    emp.Title = employee.Title;
+                    emp.Address = employee.Address;
+                    emp.City = employee.City;
+                    emp.Region = employee.Region;
+                    emp.PostalCode = employee.PostalCode;
+                    emp.Country = employee.Country;
+                    emp.HomePhone = employee.HomePhone;
+                    db.Update(emp);
+                    return Ok();
+                }
+                catch {
+                    return InternalServerError();
+                }
             }
             else
                 return BadRequest(ModelState);

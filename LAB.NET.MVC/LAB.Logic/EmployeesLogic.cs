@@ -13,7 +13,7 @@ namespace LAB.Logic
     {
         public List<Employees> GetAll()
         {
-            return context.Employees.ToList();
+                return context.Employees.ToList();
         }
 
         public Employees GetOne(int id)
