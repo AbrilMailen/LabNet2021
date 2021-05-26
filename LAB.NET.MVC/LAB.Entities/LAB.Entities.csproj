@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Employees.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuotesAPI.cs" />
     <Compile Include="Territories.cs" />
   </ItemGroup>
   <ItemGroup>
